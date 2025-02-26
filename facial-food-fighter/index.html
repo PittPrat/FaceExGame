@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Facial Food Fighter</title>
+    <link rel="stylesheet" href="styles.css">
+    <!-- Load face-api.js -->
+    <!-- <script src="https://cdn.jsdelivr.net/npm/face-api.js@0.22.2/dist/face-api.min.js"></script> -->
+    <!-- Load MediaPipe Face Mesh -->
+    <script src="https://cdn.jsdelivr.net/npm/@mediapipe/face_mesh"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs-core"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs-converter"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs-backend-webgl"></script>
+</head>
+<body>
+  <div class="container">
+    <h1>Facial Food Fighter</h1>
+    
+    <!-- Game container -->
+    <div class="game-container">
+      <!-- Video element (hidden) -->
+      <video id="video" width="640" height="480" autoplay muted playsinline></video>
+      
+      <!-- Canvas for game rendering -->
+      <canvas id="gameCanvas" width="640" height="480"></canvas>
+      
+      <!-- Feedback container for animations -->
+      <div id="feedbackContainer"></div>
+      
+      <!-- Instructions screen -->
+      <div id="instructions" class="overlay">
+        <!-- Instructions content will be populated by JS -->
+      </div>
+      
+      <!-- Game UI -->
+      <div id="gameUI" class="overlay" style="display: none;">
+        <div class="score-container">
+          <span>Score: </span>
+          <span id="scoreDisplay">0</span>
+        </div>
+      </div>
+      
+      <!-- Game over screen -->
+      <div id="gameOver" class="overlay" style="display: none;">
+        <h2>Game Over!</h2>
+        <p>Your final score: <span id="finalScore">0</span></p>
+        <button id="restartButton" onclick="startGame()">Play Again</button>
+      </div>
+      
+      <!-- Error message -->
+      <div id="error" class="overlay error" style="display: none;"></div>
+    </div>
+    
+    <!-- Controls -->
+    <div class="controls">
+      <button id="startButton" class="btn">Start Game</button>
+    </div>
+    
+    <!-- How to play section -->
+    <div class="how-to-play">
+      <h3>How to Play:</h3>
+      <p>Use facial expressions to eat healthy foods and reject junk foods!</p>
+      <ul>
+        <li>Smile with raised cheeks to eat apples</li>
+        <li>Open mouth wide to eat broccoli</li>
+        <li>Raise eyebrows to reject donuts</li>
+        <li>Puff cheeks to reject soda</li>
+      </ul>
+    </div>
+  </div>
+  
+  <script src="game.js"></script>
+</body>
+</html>

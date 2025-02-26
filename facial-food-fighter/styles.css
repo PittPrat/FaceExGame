@@ -1,0 +1,254 @@
+/* Main styles for Facial Food Fighter */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  body {
+    font-family: 'Arial Rounded MT Bold', 'Arial', sans-serif;
+    background-color: #f0f8ff;
+    color: #333;
+    line-height: 1.6;
+  }
+  
+  .container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    text-align: center;
+  }
+  
+  h1 {
+    color: #ff6b6b;
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+  }
+  
+  /* Game container */
+  .game-container {
+    position: relative;
+    width: 640px;
+    height: 480px;
+    margin: 0 auto;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+  }
+  
+  /* Hide the video element */
+  #video {
+    display: none;
+  }
+  
+  /* Canvas styling */
+  #gameCanvas {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #000;
+  }
+  
+  /* Feedback animations */
+  #feedbackContainer {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+  }
+  
+  .feedback {
+    position: absolute;
+    font-size: 24px;
+    font-weight: bold;
+    animation: feedback-float 1s ease-out forwards;
+    opacity: 0;
+  }
+  
+  .feedback.success {
+    color: #4caf50;
+  }
+  
+  .feedback.failure {
+    color: #f44336;
+  }
+  
+  @keyframes feedback-float {
+    0% {
+      transform: translateY(0);
+      opacity: 0;
+    }
+    10% {
+      opacity: 1;
+    }
+    100% {
+      transform: translateY(-50px);
+      opacity: 0;
+    }
+  }
+  
+  /* Overlay styling */
+  .overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8);
+    color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    z-index: 10;
+  }
+  
+  /* Instructions */
+  #instructions {
+    text-align: center;
+  }
+  
+  #instructions h2 {
+    margin-bottom: 20px;
+    color: #4caf50;
+  }
+  
+  .instruction {
+    display: flex;
+    align-items: center;
+    margin: 10px 0;
+  }
+  
+  .instruction img {
+    width: 80px;
+    height: 80px;
+    margin-right: 15px;
+    border-radius: 50%;
+    background-color: #fff;
+    padding: 5px;
+  }
+  
+  /* Game UI */
+  .score-container {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    background-color: rgba(0, 0, 0, 0.5);
+    padding: 5px 10px;
+    border-radius: 20px;
+    font-size: 18px;
+    color: white;
+  }
+  
+  /* Game over */
+  #gameOver h2 {
+    font-size: 2.5rem;
+    color: #f44336;
+    margin-bottom: 20px;
+  }
+  
+  #finalScore {
+    font-size: 2rem;
+    color: #4caf50;
+  }
+  
+  /* Error message */
+  .error {
+    background-color: rgba(244, 67, 54, 0.9);
+  }
+  
+  /* Controls */
+  .controls {
+    margin: 20px 0;
+  }
+  
+  .btn {
+    background-color: #4caf50;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    font-size: 1.2rem;
+    border-radius: 30px;
+    cursor: pointer;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s ease;
+  }
+  
+  .btn:hover {
+    background-color: #45a049;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+  }
+  
+  .btn:active {
+    transform: translateY(0);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  }
+  
+  /* How to play section */
+  .how-to-play {
+    margin-top: 20px;
+    background-color: white;
+    padding: 15px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  .how-to-play h3 {
+    color: #ff6b6b;
+    margin-bottom: 10px;
+  }
+  
+  .how-to-play ul {
+    list-style-type: none;
+    text-align: left;
+    padding-left: 20px;
+  }
+  
+  .how-to-play li {
+    margin: 8px 0;
+    position: relative;
+    padding-left: 25px;
+  }
+  
+  .how-to-play li:before {
+    content: '🍎';
+    position: absolute;
+    left: 0;
+  }
+  
+  .how-to-play li:nth-child(2):before {
+    content: '🥦';
+  }
+  
+  .how-to-play li:nth-child(3):before {
+    content: '🍩';
+  }
+  
+  .how-to-play li:nth-child(4):before {
+    content: '🥤';
+  }
+  
+  /* Responsive adjustments */
+  @media (max-width: 700px) {
+    .container {
+      padding: 10px;
+    }
+    
+    .game-container {
+      width: 100%;
+      height: auto;
+      aspect-ratio: 4/3;
+    }
+    
+    h1 {
+      font-size: 2rem;
+    }
+  }
